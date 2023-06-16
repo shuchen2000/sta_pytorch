@@ -14,10 +14,10 @@ import time
 # 以下需要自定义修改
 
 # 训练完模型ckp所在的路径，文件名
-ckp_22_path = "/home/shuchen/OVSCQE/stdf-pytorch-master/sta_ckps/LDP22.pth"
-ckp_27_path = "/home/shuchen/OVSCQE/stdf-pytorch-master/sta_ckps/LDP27.pth"
-ckp_32_path = "/home/shuchen/OVSCQE/stdf-pytorch-master/sta_ckps/LDP32.pth"
-ckp_37_path = "/home/shuchen/OVSCQE/stdf-pytorch-master/sta_ckps/LDP37.pth"
+ckp_22_path = "./sta_ckps/LDP22.pth"
+ckp_27_path = "./sta_ckps/LDP27.pth"
+ckp_32_path = "./sta_ckps/LDP32.pth"
+ckp_37_path = "./sta_ckps/LDP37.pth"
 
 # gt视频 yuv8bits
 gt_dir = '/home/cuifuguo/dataset/test_10/label'
