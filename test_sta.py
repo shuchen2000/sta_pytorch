@@ -36,7 +36,7 @@ CKP_PATHS = [ckp_22_path, ckp_27_path, ckp_32_path, ckp_37_path]
 LQ_DIRS = [lq_22_dir, lq_27_dir, lq_32_dir, lq_37_dir]
 GT_DIR = gt_dir
 TEST_SEQ_NAME6 = ['WebBro','FSN_12','SlideE','ChinaS','JujuKa','Basket','SlideS','Map_12','HW_128','WordEd']
-TEST_SEQ_SEL = [0,1,1,1,0,0,0,0,0,0]
+TEST_SEQ_SEL = [1,1,1,1,1,1,1,1,1,1]
 TEST_SEQ_NAME6_SEL = []
 for index in range(0,10):
     if TEST_SEQ_SEL[index]==1:
