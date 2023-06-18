@@ -167,7 +167,7 @@ def test(raw_yuv_path,lq_yuv_path,ckp_path,qp):
 
 
 def main():
-    for i in range(2,3):  # 0:QP22 1:QP27 2:QP32 3:QP37
+    for i in range(0,4):  # 0:QP22 1:QP27 2:QP32 3:QP37
         qp = QPS[i]
         ckp_path = CKP_PATHS[i]
         gt_dir = GT_DIR
