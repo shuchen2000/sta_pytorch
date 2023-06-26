@@ -1,7 +1,7 @@
 # sta_pytorch
-Implementation of "Spatial-Temporal Adaptive Compressed Screen Content Video Quality Enhancement"
+Official implementation of "Spatial-Temporal Adaptive Compressed Screen Content Video Quality Enhancement"
 
 The full code will be published after the paper is accepted.
 
-Train and test dataset are available at https://pan.baidu.com/s/1Bqj_CXaThORriGsMoVaObw , code:scve.
+Train and test dataset are available at https://pan.baidu.com/s/1Bqj_CXaThORriGsMoVaObw ,  extraction code: scve.
 
