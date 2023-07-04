@@ -1,0 +1,84 @@
+loaded model from [./model_state_dicts/STA22_state_dict.pth]
+    >>> [ RESULT ] QP: 22  VideoName BasketballDrillText_832x480_500 ave: ori [40.84966] dB, enh [41.04874] dB, delta [0.19907] dB  ave ori_ssim [0.96676], enh_ssim [0.96833], delta_ssim [0.0016]
+
+    >>> [ RESULT ] QP: 22  VideoName ChinaSpeed_1024x768_500 ave: ori [43.28451] dB, enh [43.42580] dB, delta [0.14130] dB  ave ori_ssim [0.98130], enh_ssim [0.98193], delta_ssim [0.0006]
+
+    >>> [ RESULT ] QP: 22  VideoName FSN_1280x720_300 ave: ori [49.11493] dB, enh [49.30011] dB, delta [0.18517] dB  ave ori_ssim [0.99168], enh_ssim [0.99197], delta_ssim [0.0003]
+
+    >>> [ RESULT ] QP: 22  VideoName HW_1280x720_300 ave: ori [44.48934] dB, enh [44.60812] dB, delta [0.11877] dB  ave ori_ssim [0.97612], enh_ssim [0.97672], delta_ssim [0.0006]
+
+    >>> [ RESULT ] QP: 22  VideoName JujuKai_1280x720_300 ave: ori [47.44220] dB, enh [47.63743] dB, delta [0.19523] dB  ave ori_ssim [0.99121], enh_ssim [0.99160], delta_ssim [0.0004]
+
+    >>> [ RESULT ] QP: 22  VideoName Map_1280x720_600 ave: ori [46.95744] dB, enh [47.38894] dB, delta [0.43151] dB  ave ori_ssim [0.99501], enh_ssim [0.99567], delta_ssim [0.0007]
+
+    >>> [ RESULT ] QP: 22  VideoName SlideEditing_1280x720_300 ave: ori [47.96659] dB, enh [48.18153] dB, delta [0.21494] dB  ave ori_ssim [0.99850], enh_ssim [0.99859], delta_ssim [0.0001]
+
+    >>> [ RESULT ] QP: 22  VideoName SlideShow_1280x720_500 ave: ori [49.62328] dB, enh [49.93259] dB, delta [0.30931] dB  ave ori_ssim [0.99507], enh_ssim [0.99526], delta_ssim [0.0002]
+
+    >>> [ RESULT ] QP: 22  VideoName WebBrowsing_1280x720_300 ave: ori [49.35293] dB, enh [49.70920] dB, delta [0.35627] dB  ave ori_ssim [0.99883], enh_ssim [0.99892], delta_ssim [0.0001]
+
+    >>> [ RESULT ] QP: 22  VideoName WordEditing_1280x720_600 ave: ori [47.87608] dB, enh [48.20776] dB, delta [0.33168] dB  ave ori_ssim [0.99922], enh_ssim [0.99931], delta_ssim [0.0001]
+
+loaded model from [./model_state_dicts/STA27_state_dict.pth]
+    >>> [ RESULT ] QP: 27  VideoName BasketballDrillText_832x480_500 ave: ori [37.49670] dB, enh [37.63692] dB, delta [0.14021] dB  ave ori_ssim [0.93787], enh_ssim [0.94011], delta_ssim [0.0022]
+
+    >>> [ RESULT ] QP: 27  VideoName ChinaSpeed_1024x768_500 ave: ori [39.11884] dB, enh [39.24373] dB, delta [0.12489] dB  ave ori_ssim [0.96021], enh_ssim [0.96167], delta_ssim [0.0015]
+
+    >>> [ RESULT ] QP: 27  VideoName FSN_1280x720_300 ave: ori [46.77667] dB, enh [47.11813] dB, delta [0.34146] dB  ave ori_ssim [0.98842], enh_ssim [0.98911], delta_ssim [0.0007]
+
+    >>> [ RESULT ] QP: 27  VideoName HW_1280x720_300 ave: ori [41.73780] dB, enh [41.87663] dB, delta [0.13883] dB  ave ori_ssim [0.95951], enh_ssim [0.96063], delta_ssim [0.0011]
+
+    >>> [ RESULT ] QP: 27  VideoName JujuKai_1280x720_300 ave: ori [44.99139] dB, enh [45.40469] dB, delta [0.41330] dB  ave ori_ssim [0.98751], enh_ssim [0.98858], delta_ssim [0.0011]
+
+    >>> [ RESULT ] QP: 27  VideoName Map_1280x720_600 ave: ori [42.66937] dB, enh [43.18950] dB, delta [0.52013] dB  ave ori_ssim [0.98776], enh_ssim [0.98975], delta_ssim [0.0020]
+
+    >>> [ RESULT ] QP: 27  VideoName SlideEditing_1280x720_300 ave: ori [43.80887] dB, enh [44.20331] dB, delta [0.39444] dB  ave ori_ssim [0.99741], enh_ssim [0.99771], delta_ssim [0.0003]
+
+    >>> [ RESULT ] QP: 27  VideoName SlideShow_1280x720_500 ave: ori [45.54774] dB, enh [45.99757] dB, delta [0.44983] dB  ave ori_ssim [0.99117], enh_ssim [0.99163], delta_ssim [0.0005]
+
+    >>> [ RESULT ] QP: 27  VideoName WebBrowsing_1280x720_300 ave: ori [44.89672] dB, enh [45.31698] dB, delta [0.42026] dB  ave ori_ssim [0.99757], enh_ssim [0.99785], delta_ssim [0.0003]
+
+    >>> [ RESULT ] QP: 27  VideoName WordEditing_1280x720_600 ave: ori [43.39752] dB, enh [43.87012] dB, delta [0.47261] dB  ave ori_ssim [0.99825], enh_ssim [0.99855], delta_ssim [0.0003]
+
+loaded model from [./model_state_dicts/STA32_state_dict.pth]
+    >>> [ RESULT ] QP: 32  VideoName BasketballDrillText_832x480_500 ave: ori [34.56032] dB, enh [34.69128] dB, delta [0.13096] dB  ave ori_ssim [0.89660], enh_ssim [0.90020], delta_ssim [0.0036]
+
+    >>> [ RESULT ] QP: 32  VideoName ChinaSpeed_1024x768_500 ave: ori [35.57640] dB, enh [35.71653] dB, delta [0.14012] dB  ave ori_ssim [0.93243], enh_ssim [0.93458], delta_ssim [0.0021]
+
+    >>> [ RESULT ] QP: 32  VideoName FSN_1280x720_300 ave: ori [44.04085] dB, enh [44.40053] dB, delta [0.35969] dB  ave ori_ssim [0.98301], enh_ssim [0.98415], delta_ssim [0.0011]
+
+    >>> [ RESULT ] QP: 32  VideoName HW_1280x720_300 ave: ori [39.16016] dB, enh [39.29914] dB, delta [0.13897] dB  ave ori_ssim [0.93735], enh_ssim [0.93956], delta_ssim [0.0022]
+
+    >>> [ RESULT ] QP: 32  VideoName JujuKai_1280x720_300 ave: ori [42.27017] dB, enh [42.75558] dB, delta [0.48540] dB  ave ori_ssim [0.98108], enh_ssim [0.98296], delta_ssim [0.0019]
+
+    >>> [ RESULT ] QP: 32  VideoName Map_1280x720_600 ave: ori [38.27740] dB, enh [38.75055] dB, delta [0.47315] dB  ave ori_ssim [0.96664], enh_ssim [0.97100], delta_ssim [0.0044]
+
+    >>> [ RESULT ] QP: 32  VideoName SlideEditing_1280x720_300 ave: ori [39.44561] dB, enh [39.99033] dB, delta [0.54472] dB  ave ori_ssim [0.99445], enh_ssim [0.99509], delta_ssim [0.0006]
+
+    >>> [ RESULT ] QP: 32  VideoName SlideShow_1280x720_500 ave: ori [41.82809] dB, enh [42.41237] dB, delta [0.58428] dB  ave ori_ssim [0.98604], enh_ssim [0.98703], delta_ssim [0.0010]
+
+    >>> [ RESULT ] QP: 32  VideoName WebBrowsing_1280x720_300 ave: ori [40.32756] dB, enh [41.12272] dB, delta [0.79516] dB  ave ori_ssim [0.99449], enh_ssim [0.99545], delta_ssim [0.0010]
+
+    >>> [ RESULT ] QP: 32  VideoName WordEditing_1280x720_600 ave: ori [38.72445] dB, enh [39.39447] dB, delta [0.67002] dB  ave ori_ssim [0.99582], enh_ssim [0.99669], delta_ssim [0.0009]
+
+loaded model from [./model_state_dicts/STA37_state_dict.pth]
+    >>> [ RESULT ] QP: 37  VideoName BasketballDrillText_832x480_500 ave: ori [31.96321] dB, enh [32.13007] dB, delta [0.16686] dB  ave ori_ssim [0.85154], enh_ssim [0.85625], delta_ssim [0.0047]
+
+    >>> [ RESULT ] QP: 37  VideoName ChinaSpeed_1024x768_500 ave: ori [32.44362] dB, enh [32.55373] dB, delta [0.11010] dB  ave ori_ssim [0.89999], enh_ssim [0.90146], delta_ssim [0.0015]
+
+    >>> [ RESULT ] QP: 37  VideoName FSN_1280x720_300 ave: ori [41.11709] dB, enh [41.44765] dB, delta [0.33056] dB  ave ori_ssim [0.97402], enh_ssim [0.97595], delta_ssim [0.0019]
+
+    >>> [ RESULT ] QP: 37  VideoName HW_1280x720_300 ave: ori [36.57595] dB, enh [36.67275] dB, delta [0.09679] dB  ave ori_ssim [0.90467], enh_ssim [0.90778], delta_ssim [0.0031]
+
+    >>> [ RESULT ] QP: 37  VideoName JujuKai_1280x720_300 ave: ori [39.32487] dB, enh [39.82658] dB, delta [0.50171] dB  ave ori_ssim [0.97050], enh_ssim [0.97381], delta_ssim [0.0033]
+
+    >>> [ RESULT ] QP: 37  VideoName Map_1280x720_600 ave: ori [34.27980] dB, enh [34.71483] dB, delta [0.43503] dB  ave ori_ssim [0.92807], enh_ssim [0.93423], delta_ssim [0.0062]
+
+    >>> [ RESULT ] QP: 37  VideoName SlideEditing_1280x720_300 ave: ori [34.76709] dB, enh [35.64215] dB, delta [0.87506] dB  ave ori_ssim [0.98567], enh_ssim [0.98780], delta_ssim [0.0021]
+
+    >>> [ RESULT ] QP: 37  VideoName SlideShow_1280x720_500 ave: ori [38.31743] dB, enh [38.87648] dB, delta [0.55905] dB  ave ori_ssim [0.97892], enh_ssim [0.98078], delta_ssim [0.0019]
+
+    >>> [ RESULT ] QP: 37  VideoName WebBrowsing_1280x720_300 ave: ori [35.62820] dB, enh [37.04376] dB, delta [1.41556] dB  ave ori_ssim [0.98666], enh_ssim [0.99012], delta_ssim [0.0035]
+
+    >>> [ RESULT ] QP: 37  VideoName WordEditing_1280x720_600 ave: ori [34.09222] dB, enh [35.16632] dB, delta [1.07411] dB  ave ori_ssim [0.98971], enh_ssim [0.99248], delta_ssim [0.0028]
+
