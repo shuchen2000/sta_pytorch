@@ -47,7 +47,7 @@ for index in range(0,10):
 
 
 def test(raw_yuv_path,lq_yuv_path,sd_path,qp):
-    model = Net(channels=64)  # 创建模型
+    model = Net(frame_channels = 1, mid_channels=64)  # 创建模型
     model.load_state_dict(torch.load(sd_path))
     model = model.cuda()
     model.eval()

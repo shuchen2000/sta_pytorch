@@ -18,7 +18,7 @@ class ResBlock(nn.Module):
         super().__init__()
         self.conv_1 = nn.Conv2d(in_channels, out_channels, (3, 3), 1, 1)
         self.conv_2 = nn.Conv2d(out_channels, out_channels, (3, 3), 1, 1)
-        self.lrelu = nn.LeakyReLU(negative_slope=0.1,inplace=True)
+        self.lrelu = nn.LeakyReLU(negative_slope=0.1, inplace=True)
         self.channel_diff = (in_channels != out_channels)
         if self.channel_diff:
             self.conv_channel = nn.Conv2d(in_channels, out_channels, (1, 1), 1, 0)
@@ -29,6 +29,7 @@ class ResBlock(nn.Module):
         if self.channel_diff:
             feature_skip = self.conv_channel(feature_skip)
         return feature_deep + feature_skip
+
 
 # Some sequentially connected residual blocks
 class ResBlocks(nn.Module):
@@ -304,8 +305,8 @@ class CAFusion(nn.Module):
             nn.Conv2d(channels, channels // 8, (1, 1), 1, 0),
             nn.LeakyReLU(negative_slope=0.1, inplace=True)
         )
-        self.conv_text = nn.Conv2d(channels // 8, channels, (1, 1), 1, 0)
-        self.conv_graphic = nn.Conv2d(channels // 8, channels, (1, 1), 1, 0)
+        self.conv_s = nn.Conv2d(channels // 8, channels, (1, 1), 1, 0)
+        self.conv_m = nn.Conv2d(channels // 8, channels, (1, 1), 1, 0)
         self.softmax = nn.Softmax()
 
     def forward(self, feat_s, feat_m):
@@ -314,14 +315,14 @@ class CAFusion(nn.Module):
         feat_sum = feat_s + feat_m
         weight = self.gap(feat_sum)
         weight_squeeze = self.conv_squeeze(weight)
-        weight_text = self.conv_text(weight_squeeze)
-        weight_graphic = self.conv_graphic(weight_squeeze)  # [b,c,1,1]
-        weights = torch.cat((weight_graphic.unsqueeze(2), weight_text.unsqueeze(2)), dim=2)  # [b,c,2,1,1]
+        weight_s = self.conv_s(weight_squeeze)
+        weight_m = self.conv_m(weight_squeeze)  # [b,c,1,1]
+        weights = torch.cat((weight_m.unsqueeze(2), weight_s.unsqueeze(2)), dim=2)  # [b,c,2,1,1]
         weights_softmax = torch.softmax(weights, dim=2)  # [b,c,2,1,1]
-        weight_graphic_softmax = weights_softmax[:, :, 0, :, :]  # [b,c,1,1]
-        weight_text_softmax = weights_softmax[:, :, 1, :, :]  # [b,c,1,1]
-        feat_s_caf = weight_text_softmax * feat_s  # [b,c,h,w]
-        feat_m_caf = weight_graphic_softmax * feat_m  # [b,c,h,w]
+        weight_m_softmax = weights_softmax[:, :, 0, :, :]  # [b,c,1,1]
+        weight_s_softmax = weights_softmax[:, :, 1, :, :]  # [b,c,1,1]
+        feat_s_caf = weight_s_softmax * feat_s  # [b,c,h,w]
+        feat_m_caf = weight_m_softmax * feat_m  # [b,c,h,w]
         return feat_s_caf, feat_m_caf  # [b,c,h,w]
 
 
@@ -344,20 +345,20 @@ class SAFusion(nn.Module):
     def forward(self, feat_s, feat_m, spat_temp_info):
         spatial_info_1 = self.spatial_info_extract(spat_temp_info)
         spatial_info_2 = self.spatial_info_directly_extract(spat_temp_info)
-        graphic_msk = self.sigmoid(
+        msk_m = self.sigmoid(
             self.spatial_info_fusion(torch.cat((spatial_info_1, spatial_info_2), dim=1)))  # [b,1,h,w]
-        feat_m_saf = (feat_m * graphic_msk)
-        feat_s_saf = (feat_s * (1 - graphic_msk))
+        feat_m_saf = (feat_m * msk_m)
+        feat_s_saf = (feat_s * (1 - msk_m))
         return feat_m_saf + feat_s_saf
 
 
 # Rec
 class Reconstruction(nn.Module):
-    def __init__(self, channels, resblocks_num):
+    def __init__(self, in_channels, out_channels, resblocks_num):
         super(Reconstruction, self).__init__()
         self.rec = nn.Sequential(
-            ResBlocks(in_channels=channels, out_channels=channels, resblocks_num=resblocks_num),
-            nn.Conv2d(channels, 1, (3, 3), 1, 1)
+            ResBlocks(in_channels=in_channels, out_channels=in_channels, resblocks_num=resblocks_num),
+            nn.Conv2d(in_channels, out_channels, (3, 3), 1, 1)
         )
 
     def forward(self, x):
@@ -366,15 +367,15 @@ class Reconstruction(nn.Module):
 
 # STA main network
 class Net(nn.Module):
-    def __init__(self, channels):
+    def __init__(self, frame_channels, mid_channels):
         super(Net, self).__init__()
         print("STA network for compressed SCV quality enhancement [Last modified on June 26, 2023]")
-        self.fe = ResBlocks(in_channels=1, out_channels=64, resblocks_num=5)
-        self.mfeb = MFEnhance(channels=64)
-        self.sfeb = SFEnhance(channels=64)
-        self.caf = CAFusion(channels=64)
-        self.saf = SAFusion(channels=64)
-        self.rec = Reconstruction(channels=channels, resblocks_num=10)  # 重建模块REC
+        self.fe = ResBlocks(in_channels=frame_channels, out_channels=mid_channels, resblocks_num=5)
+        self.mfeb = MFEnhance(channels=mid_channels)
+        self.sfeb = SFEnhance(channels=mid_channels)
+        self.caf = CAFusion(channels=mid_channels)
+        self.saf = SAFusion(channels=mid_channels)
+        self.rec = Reconstruction(in_channels=mid_channels, out_channels=frame_channels, resblocks_num=10)
 
     def forward(self, f2n, f1n, f0, f1, f2):
         # FE
@@ -397,7 +398,7 @@ class Net(nn.Module):
 
 
 if __name__ == "__main__":
-    model = Net(64).cuda()
+    model = Net(1,64).cuda()
     inp2n = torch.rand([7, 1, 64, 64]).cuda()
     inp1n = torch.rand([7, 1, 64, 64]).cuda()
     inp0 = torch.rand([7, 1, 64, 64]).cuda()
