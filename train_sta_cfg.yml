@@ -16,7 +16,6 @@ dataset:
     enlarge_ratio: 500 # enlarge dataset by randomly cropping.
 
     # for dataloader
-    num_gpu: 2
     num_worker_per_gpu: 8
     batch_size_per_gpu: 16
 
