@@ -1,0 +1,14 @@
+dataset:
+  train:  # LMDB
+    type: MFQEv2Dubble
+
+    root: /home/shuchen/datasets/lmdb
+    gt_folder: /home/shuchen/datasets/SCV82/train/RAW
+    lq_folder: /home/shuchen/datasets/SCV82/train/LDP_8bits_22
+    gt_valid: True
+    lq_valid: True
+    assist_info: LDP22
+    gt_path: GT_r5_train.lmdb
+    lq_path: LQ_r5_qp22_train.lmdb
+    meta_info_fp: meta_info.txt
+

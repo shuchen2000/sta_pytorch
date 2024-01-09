@@ -21,5 +21,5 @@ def bitdepth_10to8(dir_10bit, dir_8bit):
 
 
 if __name__=="__main__":
-    bitdepth_10to8(dir_10bit="/home/shuchen/datasets/ScreenContent/train_72/VTM_12.1_RA_10/QP27"
-                   ,dir_8bit="/home/shuchen/datasets/ScreenContent/train_72/VTM_12.1_RA_8/QP27")
+    bitdepth_10to8(dir_10bit="/home/shuchen/datasets/SCV82/train/LDP_10bits_22"
+                   ,dir_8bit="/home/shuchen/datasets/SCV82/train/LDP_8bits_22")

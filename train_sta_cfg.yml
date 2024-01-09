@@ -1,0 +1,62 @@
+dataset:
+  train:  # LMDB
+    type: MFQEv2Dubble
+    root: /home/shuchen/datasets/lmdb
+
+    gt_path: /home/shuchen/datasets/lmdb/GT_r5_train.lmdb
+    lq_path: /home/shuchen/datasets/lmdb/LQ_r5_qp22_train.lmdb
+    meta_info_fp: meta_info.txt
+
+    gt_size: 128 # ground truth patch size: gt_size * gt_size
+    use_flip: True
+    use_rot: True  # rotation per 90 degrees
+    random_reverse: True
+
+    # for datasampler
+    enlarge_ratio: 500 # enlarge dataset by randomly cropping.
+
+    # for dataloader
+    num_gpu: 2
+    num_worker_per_gpu: 8
+    batch_size_per_gpu: 16
+
+network:
+  radius: 5
+
+train:
+  exp_name: sta_ckp_temp # default: timestr. None: ~
+  random_seed: 0
+  pre-val: False  # evaluate criterion before training, e.g., ori PSNR
+  num_iter: !!float 5e+5
+  interval_print: !!float 50
+  interval_val: !!float 5000.  # also save model 5000
+  pbar_len: 100
+
+  optim:
+    type: Adam
+    lr: !!float 1e-4  # init lr of scheduler
+    betas: [0.9, 0.999]
+    eps: !!float 1e-08
+
+  scheduler:
+    is_on: False
+    type: CosineAnnealingRestartLR
+    periods: [!!float 5e+4, !!float 5e+4, !!float 5e+4, !!float 5e+4, !!float 5e+4, !!float 5e+4]  # epoch interval
+    restart_weights: [1, 0.5, 0.5, 0.5, 0.5, 0.5]
+    eta_min: !!float 1e-7
+
+  loss:
+    type: CombinedLoss
+    eps: !!float 1e-6
+
+  criterion:
+    type: PSNR
+    unit: dB
+
+test:
+  restore_iter: !!float 290000
+  pbar_len: 100
+
+  criterion:
+    type: PSNR
+    unit: dB
